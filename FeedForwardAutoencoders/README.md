@@ -2,11 +2,6 @@
 
 This project implements a feedforward autoencoder for reconstructing images using PyTorch.
 
-## Features
-- Fully connected autoencoder for image reconstruction.
-- Supports training and validation pipelines.
-- Outputs visualizations of reconstructed images.
-
 ## References
 This implementation is inspired by:
 - [arXiv:2003.05991](https://arxiv.org/abs/2003.05991)

@@ -1,3 +1,4 @@
+import torch
 import torch.nn as nn
 
 class FFAutoencoder(nn.Module):
@@ -30,3 +31,13 @@ class FFAutoencoder(nn.Module):
         latent = self.down(x)
         reconstructed = self.up(latent)
         return reconstructed
+
+class DenoisingAutoencoder(FFAutoencoder):
+    def __init__(self, in_features, latent_dim, hidden_dimensions, noise_intensity=0.001):
+        super(DenoisingAutoencoder, self).__init__(in_features, latent_dim, hidden_dimensions)
+        self.noise_intensity = noise_intensity
+
+    def forward(self, x):
+        x += self.noise_intensity * torch.randn_like(x)
+        denoised = super().forward(x)
+        return denoised

@@ -10,13 +10,17 @@ class FFAutoencoder(nn.Module):
         encoder_layers = [nn.Linear(in_features=in_features, out_features=hidden_dimensions[0])]
         for i in range(1, len(hidden_dimensions)):
             encoder_layers.append(nn.Linear(in_features=hidden_dimensions[i - 1], out_features=hidden_dimensions[i]))
+            encoder_layers.append(nn.ReLU())
+
         encoder_layers.append(nn.Linear(in_features=hidden_dimensions[-1], out_features=latent_dim))
 
         # Decoder layers
         decoder_layers = [nn.Linear(in_features=latent_dim, out_features=hidden_dimensions[-1])]
         for i in range(len(hidden_dimensions) - 1, 0, -1):
             decoder_layers.append(nn.Linear(in_features=hidden_dimensions[i], out_features=hidden_dimensions[i - 1]))
+            decoder_layers.append(nn.ReLU())
         decoder_layers.append(nn.Linear(in_features=hidden_dimensions[0], out_features=in_features))
+        decoder_layers.append(nn.Sigmoid())
 
         return nn.Sequential(*encoder_layers), nn.Sequential(*decoder_layers)
 

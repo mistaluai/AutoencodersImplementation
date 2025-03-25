@@ -52,7 +52,3 @@ class Trainer:
                 total_loss += loss.item()
         avg_loss = total_loss / len(dataloader)
         return avg_loss
-
-
-
-

@@ -4,9 +4,9 @@ from torch import nn
 from torch.utils.data import DataLoader
 from torchvision import transforms
 
-from FeedForwardAutoencoders.model import FFAutoencoder, DenoisingAutoencoder
-from utils.plotter import plot_random_reconstructions
-from utils.trainer import Trainer
+from FeedForwardAutoencoders.model import DenoisingAutoencoder
+from FeedForwardAutoencoders.utils.plotter import plot_random_reconstructions
+from FeedForwardAutoencoders.utils.trainer import Trainer
 
 epochs = 20
 batch_size = 64

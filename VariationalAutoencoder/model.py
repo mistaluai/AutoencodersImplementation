@@ -4,6 +4,7 @@ import torch.nn as nn
 class VAE(nn.Module):
     def __init__(self, input_size=784, latent_size=50):
         super(VAE, self).__init__()
+        self.latent = latent_size
         self.encoder = nn.Sequential(
             nn.Linear(input_size, 500),
             nn.ReLU(),

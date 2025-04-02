@@ -5,7 +5,7 @@ from torch.utils.data import DataLoader
 from torchvision import transforms
 
 from FeedForwardAutoencoders.model import DenoisingAutoencoder
-from plotter import plot_random_reconstructions
+from FeedForwardAutoencoders.utils.plotter import plot_random_reconstructions
 from FeedForwardAutoencoders.utils.trainer import Trainer
 
 epochs = 20

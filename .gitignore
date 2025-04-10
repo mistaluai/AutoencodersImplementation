@@ -1,2 +1,5 @@
 /FeedForwardAutoencoders/data
 /VariationalAutoencoder/data
+/ConditionalVariationalAutoencoders/data
+/ConditionalVariationalAutoencoders/data
+*.gz
